@@ -16,3 +16,4 @@ WITH orders AS (
       JOIN orders ON orders.order_id = order_items.order_id
       JOIN customers ON customers.customer_id = orders.customer_id
     )
+    SELECT * FROM fct_order_items
