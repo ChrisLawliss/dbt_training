@@ -1,6 +1,6 @@
 with orders as (
     
-    select * from dbt_clawliss.orders_upload
+    select * from {{ref('orders_upload')}}
     
 ),
 
