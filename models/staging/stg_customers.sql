@@ -1,23 +1,21 @@
-WITH customers AS (
+with customers as (
     
-    SELECT * FROM dbt_clawliss.customers_upload
+    select * from dbt_clawliss.customers_upload
     
 ),
 
-customers_renamed AS (
+customers_renamed as (
     
-    SELECT 
-    
-        id AS customer_id,
-        created_at,
-        accepts_marketing,
-        nullif(email, '') AS email,
-        nullif(first_name, '') AS first_name,
-        nullif(last_name, '') AS last_name,
-        nullif(gender, '') AS gender
-
-    FROM customers
+select 
+    id as customer_id,
+    created_at,
+    accepts_marketing,
+    nullif(email, '') as email,
+    nullif(first_name, '') as first_name,
+    nullif(last_name, '') as last_name,
+    nullif(gender, '') as gender
+from customers
     
 )
 
-    SELECT * FROM customers_renamed
+    select * from customers_renamed

@@ -1,28 +1,31 @@
-WITH orders AS (
+with orders as (
     
-    SELECT * from {{ref('stg_orders')}}
+select * from {{ref('stg_orders')}}
     
 ),
-    order_items AS (
+
+order_items as (
         
-      SELECT * FROM {{ref('stg_order_items')}}
+    select * from {{ref('stg_order_items')}}
       
-    ),
-    customers AS (
+),
+    
+customers as (
         
-      SELECT * FROM {{ref('stg_customers')}}
+    select * from {{ref('stg_customers')}}
       
-    ),
+),
     
-    fct_order_items AS (
+fct_order_items as (
         
-      SELECT order_items.*,
-             orders.created_at AS order_date,
-             customers.email,
-             customers.customer_id
-      FROM order_items
-      JOIN orders ON orders.order_id = order_items.order_id
-      JOIN customers ON customers.customer_id = orders.customer_id
-    )
+select order_items.*,
+    orders.created_at as order_date,
+    customers.email,
+    customers.customer_id
+from order_items
+left join orders using (order_id)
+left join customers using (customer_id)
+      
+)
     
-    SELECT * FROM fct_order_items
+select * from fct_order_items

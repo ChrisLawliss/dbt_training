@@ -1,23 +1,21 @@
-WITH order_items AS (
+with order_items as (
     
-    SELECT * FROM dbt_clawliss.order_items_upload
+    select * from dbt_clawliss.order_items_upload
     
 ),
 
-order_items_renamed AS (
+order_items_renamed as (
     
-    SELECT
-    
-        id as order_items_id,
-        order_id,
-        price,
-        quantity,
-        nullif(size, '') AS size,
-        nullif(color, '') AS color,
-        nullif(product_id, '') AS product_id
-        
-    FROM order_items
-    
+select
+    id as order_items_id,
+    order_id,
+    price,
+    quantity,
+    nullif(size, '') as size,
+    nullif(color, '') as color,
+    nullif(product_id, '') as product_id    
+from order_items
+
 )
 
-    SELECT * from order_items_renamed
+    select * from order_items_renamed

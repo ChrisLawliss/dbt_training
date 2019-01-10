@@ -1,27 +1,25 @@
-WITH orders AS (
+with orders as (
     
-    SELECT * FROM dbt_clawliss.orders_upload
+    select * from dbt_clawliss.orders_upload
     
 ),
 
-orders_renamed AS (
+orders_renamed as (
     
-    SELECT
-
-        id AS order_id,
-        customer_id,
-        created_at,
-        total,
-        completed AS is_completed,
-        nullif(email, '') AS email,
-        nullif(ip_address, '') AS ip_address,
-        nullif(street_address, '') AS street_address,
-        nullif(billing_country_code, '') AS billing_country_code,
-        nullif(referral_domain, '') AS referral_domain,
-        nullif(referral_url, '') AS referral_url
-    
-    FROM orders
+select
+    id as order_id,
+    customer_id,
+    created_at,
+    total,
+    completed as is_completed,
+    nullif(email, '') as email,
+    nullif(ip_address, '') as ip_address,
+    nullif(street_address, '') as street_address,
+    nullif(billing_country_code, '') as billing_country_code,
+    nullif(referral_domain, '') as referral_domain,
+    nullif(referral_url, '') as referral_url
+from orders
 
 )
 
-    SELECT * FROM orders_renamed
+    select * from orders_renamed
