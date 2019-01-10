@@ -1,6 +1,6 @@
 with orders as (
     
-select * from {{ref('stg_orders')}}
+    select * from {{ref('stg_orders')}}
     
 ),
 
@@ -18,13 +18,15 @@ customers as (
     
 fct_order_items as (
         
-select order_items.*,
-    orders.created_at as order_date,
-    customers.email,
-    customers.customer_id
-from order_items
-left join orders using (order_id)
-left join customers using (customer_id)
+    select 
+        order_items.*,
+        orders.created_at as order_date,
+        customers.email,
+        customers.customer_id
+        
+    from order_items
+    left join orders using (order_id)
+    left join customers using (customer_id)
       
 )
     
