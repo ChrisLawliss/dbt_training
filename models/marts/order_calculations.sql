@@ -17,7 +17,7 @@ final_orders as (
     
     select 
         orders.*,
-        datediff(day, prev_orders.prev_order_date, orders.created_at) as days_since_prev_order
+        datediff(day, prev_orders.prev_order_date, created_at) as days_since_prev_order
     
     from orders
     left join prev_orders using (order_id)
