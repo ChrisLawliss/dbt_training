@@ -33,3 +33,8 @@ models:
   chris_train:
       example:
           materialized: view
+      staging:
+          stg_orders:
+              schema: "staging"
+              materialized: table
+              
