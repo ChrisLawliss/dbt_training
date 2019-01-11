@@ -1,6 +1,6 @@
 with customers as (
     
-    select * from dbt_clawliss.customers_upload
+    select * from {{ref('customers_upload')}}
     
 ),
 

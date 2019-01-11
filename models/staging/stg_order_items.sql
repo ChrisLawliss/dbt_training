@@ -1,6 +1,6 @@
 with order_items as (
     
-    select * from dbt_clawliss.order_items_upload
+    select * from {{ref('order_items_upload')}}
     
 ),
 
