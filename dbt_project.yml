@@ -31,10 +31,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as views (the default). Try changing `view` to `table` below, then re-running dbt
 models:
   chris_train:
-      example:
-          materialized: view
-      staging:
-          stg_orders:
-              schema: "staging"
-              materialized: table
+    example:
+        materialized: view
+    staging:
+        stg_orders:
+            schema: "staging"
+            materialized: table
               
