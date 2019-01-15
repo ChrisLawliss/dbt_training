@@ -3,6 +3,7 @@ name: 'chris_train'
 version: '1.0'
 
 
+
 profile: 'chris_train'
 
 source-paths: ["models"]
@@ -11,7 +12,9 @@ test-paths: ["tests"]
 data-paths: ["data"]
 macro-paths: ["macros"]
 
+
 target-path: "target" 
+
 clean-targets:         
     - "target"
     - "dbt_modules"
